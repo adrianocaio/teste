@@ -3,6 +3,9 @@ require 'vendor/autoload.php';
 
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+
+
 
 $file = "usuario.xls";
 $spreadsheet = IOFactory::load($file);
@@ -14,13 +17,13 @@ $data = array();
 
 foreach ($worksheet->getRowIterator() as $row) {
     $rowData = array();
-    $cellIterator = $row->getCellIterator();
+    $cellIterator = $row->getCellIterator(); //Obtém linha
 
     foreach ($cellIterator as $cell) {
-        $rowData[] = $cell->getValue();
+        $rowData[] = $cell->getValue(); //Obtém coluna 
     }
 
-    $data[] = $rowData;
+    $data[] = $rowData; // Obtém valor da célula
    
    
 
